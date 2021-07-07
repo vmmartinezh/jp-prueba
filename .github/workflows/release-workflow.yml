@@ -1,0 +1,32 @@
+name: Workflow para ejecutar Release
+
+
+on:
+  workflow_dispatch:
+    branches:
+      - develop
+    inputs:
+      ambiente:
+        description: 'Ambiente en el que se desplegará'     
+        required: true
+        default: 'dev'
+      escaneoCodigo:
+        description: 'Indica si se ejecuta el escaneo de código'     
+        required: true
+        default: 'NO'
+      version:
+        description: 'Versión del código'     
+        required: true
+        default: '0.0.1'
+       
+        
+jobs:
+  execute-relese:
+    name: Release
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+    - name: Ejecuta Release
+      run: |
+        echo "Hello ${{github.event.inputs.ambiente}}"
+        echo "Hello ${{github.event.inputs.version}}"
