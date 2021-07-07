@@ -26,7 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-    - name: Ejecuta Release
+    - name: Show info
       run: |
         echo "Hello ${{github.event.inputs.ambiente}}"
         echo "Hello ${{github.event.inputs.version}}"
+    - name: jecuta Checkout
+      uses: actions/checkout@v2
