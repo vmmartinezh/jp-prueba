@@ -36,7 +36,8 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         source_branch: "develop"                                 # If blank, default: triggered branch
-        destination_branch: "master"     
+        destination_branch: "master" 
+        github_token: ${{ secrets.REPO_TOKEN}}    
     - name: show files
       shell: bash
       run: ls -als
