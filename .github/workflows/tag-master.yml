@@ -24,6 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v4
+        with:
+          repositories: '[{"id":"github", "name":"GitHub wecoderg Apache Maven Packages", "url":"https://maven.pkg.github.com/vmmartinezh/maven-packages", "releases":{"enabled":"true"}, "snapshots":{"enabled":"true"}}]'
+          servers: '[{ "id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.REPO_TOKEN }}" }]'
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.5
