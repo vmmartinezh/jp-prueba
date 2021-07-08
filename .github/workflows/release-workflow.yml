@@ -32,3 +32,6 @@ jobs:
         echo "Hello ${{github.event.inputs.version}}"
     - name: jecuta Checkout
       uses: actions/checkout@v2
+    - name: show files
+      shell: bash
+      run: ls -als
