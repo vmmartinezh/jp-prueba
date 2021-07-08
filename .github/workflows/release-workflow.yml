@@ -32,6 +32,11 @@ jobs:
         echo "Hello ${{github.event.inputs.version}}"
     - name: jecuta Checkout
       uses: actions/checkout@v2
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: "develop"                                 # If blank, default: triggered branch
+        destination_branch: "master"     
     - name: show files
       shell: bash
       run: ls -als
