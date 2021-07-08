@@ -25,14 +25,6 @@ public class GeolocationController {
 		
 		return new ResponseEntity<CountryValidationResponse>(new CountryValidationResponse(false), HttpStatus.OK);
 	}
-	
-	@PostMapping(path = "validation")
-	public ResponseEntity<CountryValidationResponse> validation(
-			@RequestHeader(name = "Authorization", required = true) String authorization,
-			@RequestHeader(name = "subscription-key", required = true) String subscriptionKey, 
-			@RequestBody CountryValidationRequest request){
-		
-		return new ResponseEntity<CountryValidationResponse>(new CountryValidationResponse(false), HttpStatus.OK);
-	}
+
 
 }
