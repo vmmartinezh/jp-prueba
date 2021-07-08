@@ -44,6 +44,14 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+		<repository>
+			<id>vmmh</id>
+			<name>GitHub Bineo Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/vmmartinezh/maven-packages/</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
