@@ -59,3 +59,12 @@ jobs:
           retention-days: 1
           path: |
             target/*
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: prueba
+          path: ./target/
+      - name: Publish to GitHub Packages Apache Maven
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
