@@ -29,7 +29,13 @@ jobs:
           distribution: 'adopt'
           server-id: github
           settings-path: ${{ github.workspace }}
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v4
+        with:
+          repositories: '[{"id":"vmmh", "name":"GitHub wecoderg Apache Maven Packages", "url":"https://maven.pkg.github.com/vmmartinezh/*", "releases":{"enabled":"true"}, "snapshots":{"enabled":"true"}}]'
+          servers: '[{ "id": "vmmh", "username": "vmmartinezh", "password": "${{ secrets.REPO_TOKEN }}" }]'
+       
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy
+        run: mvn deploy -s /home/runner/.m2/settings.xml
         env:
           GITHUB_TOKEN: ${{secrets.REPO_TOKEN }}
