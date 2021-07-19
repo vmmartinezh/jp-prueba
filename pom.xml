@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.jp.az</groupId>
 	<artifactId>prueba</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>prueba</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -46,10 +46,12 @@
 	</dependencies>
 	
 	<distributionManagement>
+		<!-- para que pueda hacer el deploy a github package la ultima parte del la url debe ser tal cual el nombre del repositorio, si no marca el error que no encuentra el artefacto  -->
 		<repository>
 			<id>vmmh</id>
 			<name>GitHub Bineo Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/vmmartinezh/maven-packages/</url>
+			<url>https://maven.pkg.github.com/vmmartinezh/jp-prueba</url>
+			<uniqueVersion>false</uniqueVersion>
 		</repository>
 	</distributionManagement>
 
