@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: deploy to azure
+
+
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: deploy
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
+    steps:
+      - name: download
+        run: curl -O -L https://maven.pkg.github.com/vmmartinezh/jp-prueba/com/jp/az/prueba/0.0.2-SNAPSHOT/prueba-0.0.2-20210719.183100-1.jar
+      - name: List Files
+        run: |
+          pwd
+          ls -ls
+      
